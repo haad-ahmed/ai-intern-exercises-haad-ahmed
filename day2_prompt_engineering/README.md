@@ -1,3 +1,5 @@
+Used GEMINI 3.1 Pro
+
 EXAMPLE USER INPUT 1:
 The new update to the productivity app is impressive. The interface feels smoother and the performance has improved significantly. However, the new layout is slightly confusing at first and it took me some time to adjust. Overall, I think the update is a step in the right direction.
 

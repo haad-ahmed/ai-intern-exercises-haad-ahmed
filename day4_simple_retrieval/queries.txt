@@ -1,0 +1,5 @@
+Query 1: what is biryani?
+
+Query 2: why cricket is popular?
+
+Query 3: when did the big bang happen?

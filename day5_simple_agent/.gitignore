@@ -1,0 +1,5 @@
+# .gitignore - Security for Day 5 Agent Assignment
+.env
+__pycache__/
+*.pyc
+.DS_Store

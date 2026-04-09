@@ -1,0 +1,7 @@
+Supervised learning algorithms learn from labeled training data to make accurate predictions on new examples.
+Making the perfect biryani requires layering fragrant basmati rice with marinated meat, saffron, and crispy fried onions.
+Black holes are regions in space where gravity is so intense that not even light can escape from them.
+Python is a high-level programming language famous for its clean, readable syntax and used heavily in AI and data science.
+In cricket, the T20 format is the shortest and most exciting version of the game, especially popular in the Pakistan Super League (PSL).
+The James Webb Space Telescope is helping scientists observe the very first galaxies formed after the Big Bang.
+Object-oriented programming organizes code into reusable classes and objects, making large projects easier to maintain.

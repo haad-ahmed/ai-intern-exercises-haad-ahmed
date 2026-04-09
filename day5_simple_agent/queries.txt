@@ -1,0 +1,3 @@
+Query 1: 34=89+2x
+Query 2: hi
+Query 3: wheather in kashmir?

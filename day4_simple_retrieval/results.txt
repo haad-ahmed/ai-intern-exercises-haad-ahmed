@@ -1,0 +1,20 @@
+Query 1: what is biryani?
+
+Top 3 results:
+1. Making the perfect biryani requires layering fragrant basmati rice with marinated meat, saffron, and crispy fried onions. (Similarity: 0.6041)
+2. Object-oriented programming organizes code into reusable classes and objects, making large projects easier to maintain. (Similarity: 0.0861)
+3. Python is a high-level programming language famous for its clean, readable syntax and used heavily in AI and data science. (Similarity: 0.0622)
+
+Query 2: why cricket is popular?
+
+Top 3 results:
+1. In cricket, the T20 format is the shortest and most exciting version of the game, especially popular in the Pakistan Super League (PSL). (Similarity: 0.4844)
+2. Python is a high-level programming language famous for its clean, readable syntax and used heavily in AI and data science. (Similarity: 0.0971)
+3. Object-oriented programming organizes code into reusable classes and objects, making large projects easier to maintain. (Similarity: 0.0736)
+
+Query 3: when did the big bang happen?
+
+Top 3 results:
+1. The James Webb Space Telescope is helping scientists observe the very first galaxies formed after the Big Bang. (Similarity: 0.4725)
+2. Black holes are regions in space where gravity is so intense that not even light can escape from them. (Similarity: 0.1667)
+3. Python is a high-level programming language famous for its clean, readable syntax and used heavily in AI and data science. (Similarity: 0.0814)

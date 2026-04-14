@@ -1,4 +1,4 @@
-Simple Semantic Retrieval System (Core of RAG)
+Simple Semantic Retrieval System (Core of RAG system)
 
 This project implements a basic semantic search system using sentence embeddings and cosine similarity. It demonstrates the core idea behind Retrieval-Augmented Generation (RAG) systems.
 

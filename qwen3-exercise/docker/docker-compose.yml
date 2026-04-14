@@ -1,0 +1,86 @@
+version: "3.9"
+
+# ────────────────────────────────────────────────────────────────────────────
+# Orion Chatbot — Full Stack
+#
+# Bring everything up with:
+#   docker compose up --build
+#
+# Then pull your model:
+#   docker exec -it ollama ollama pull qwen3
+#
+# Open in browser:
+#   http://localhost:8000
+# ────────────────────────────────────────────────────────────────────────────
+
+services:
+
+  # ── Ollama (local LLM server) ────────────────────────────────────────────
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    # ── GPU support (NVIDIA) — uncomment if you have nvidia-docker2 ──────
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # ── Model puller (runs once, pulls model into Ollama) ────────────────────
+  model-puller:
+    image: curlimages/curl:latest
+    container_name: model-puller
+    depends_on:
+      ollama:
+        condition: service_healthy
+    restart: "no"
+    entrypoint: >
+      sh -c "
+        echo 'Pulling ${OLLAMA_MODEL:-qwen3}...' &&
+        curl -s -X POST http://ollama:11434/api/pull
+          -H 'Content-Type: application/json'
+          -d '{\"name\":\"${OLLAMA_MODEL:-qwen3}\"}'
+        echo 'Model pull complete.'
+      "
+    environment:
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen3}
+
+  # ── Orion Chat API + Frontend ────────────────────────────────────────────
+  orion:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: orion
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      MODEL_BACKEND: ollama
+      OLLAMA_URL: http://ollama:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen3}
+    depends_on:
+      ollama:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+volumes:
+  ollama_data:
+    name: orion_ollama_data
